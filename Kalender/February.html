@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender</title>
+</head>
+<body>
+
+    <h1>Januari</h1>
+
+    
+
+<div id="TextFields">
+    <textarea id="field1" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field2" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field3" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field4" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field5" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field6" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field7" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field8" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field9" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field10" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field11" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field12" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field13" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field14" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field15" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field16" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field17" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field18" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field19" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field20" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field21" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field22" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field23" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field24" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field25" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field26" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field27" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field28" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field29" placeholder="..." rows="15" cols="30"></textarea>
+    <textarea id="field30" placeholder="..." rows="15" cols="30"></textarea>
+</div>
+
+    <script>
+        function saveUserInput(fieldId) {
+            var fieldValue = document.getElementById(fieldId).value;
+            localStorage.setItem(fieldId, fieldValue);
+        }
+
+        function loadUserInput(fieldId) {
+            var savedInput = localStorage.getItem(fieldId);
+            if (savedInput) {
+                document.getElementById(fieldId).value = savedInput;
+            }
+        }
+
+        function initializeField(fieldId) {
+            loadUserInput(fieldId);
+
+            document.getElementById(fieldId).addEventListener('input', function () {
+                saveUserInput(fieldId);
+            });
+        }
+
+        window.onload = function () {
+            for (var i = 1; i <= 30; i++) {
+                var fieldId = 'field' + i;
+                initializeField(fieldId);
+            }
+        };
+    </script>
+
+</body>
+</html>
+
+<style>
+        textarea, p{
+            font-family: Georgia, serif;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: whitesmoke;
+            height: 150px; width: 200px;
+            resize: none;
+            display: inline-block;
+            border:solid 5px black;
+            border-radius: 10px;
+            
+        }
+
+        h1{
+            font-family: Georgia, serif;
+            font-size: 100px;
+            text-align: center;
+        }
+</style>
